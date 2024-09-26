@@ -19,7 +19,7 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #f4f7fc;
+      background-color: #e8f0f2; /* Light background color */
       color: #333;
       line-height: 1.6;
       padding: 20px;
@@ -47,7 +47,7 @@
       display: flex;
       justify-content: space-evenly;
       border-bottom: 1px solid #ddd;
-      background-color: #fff;
+      background-color: #ffffff; /* White background for tabs */
       border-radius: 10px 10px 0 0;
     }
 
@@ -64,22 +64,32 @@
     }
 
     .tab-header button:hover {
-      color: #007bff;
+      color: #008489; /* Hover color */
     }
 
     .tab-header button.active {
-      border-bottom: 2px solid #007bff;
-      color: #007bff;
+      border-bottom: 2px solid #008489; /* Active tab color */
+      color: #008489;
     }
 
     /* Tab content */
     .tab-content {
       display: none;
       padding: 20px;
+      background-color: #f9f9f9; /* Light content background */
+      border-top: 1px solid #ddd; /* Divider */
+      border-radius: 0 0 10px 10px; /* Rounded bottom corners */
     }
 
     .tab-content.active {
       display: block;
+    }
+
+    /* List style */
+    ul {
+      margin-top: 10px;
+      list-style-type: disc;
+      padding-left: 20px;
     }
 
     /* Responsiveness */
@@ -92,9 +102,9 @@
 </head>
 <body>
 
-  <!-- Canva Logo (Replace the URL with your actual Canva logo image URL) -->
+  <!-- Canva Logo -->
   <div class="logo">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Canva_logo.svg/2560px-Canva_logo.svg.png" alt="Canva Logo">
+    <img src="https://logodownload.org/wp-content/uploads/2020/11/canva-logo-.png" alt="Canva Logo">
   </div>
 
   <!-- Tab Container -->
