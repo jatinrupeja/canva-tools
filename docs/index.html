@@ -4,86 +4,151 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Canva Extension</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
   <style>
-    /* Basic styling for the tab buttons */
-    .tab {
-      overflow: hidden;
-      background-color: #f1f1f1;
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    
-    .tab button {
-      background-color: inherit;
-      float: left;
-      border: none;
-      outline: none;
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f4f7fc;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Canva Logo */
+    .logo img {
+      max-width: 150px;
+      margin-bottom: 20px;
+    }
+
+    /* Tab container styling */
+    .tab-container {
+      width: 100%;
+      max-width: 800px;
+      background-color: white;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .tab-header {
+      display: flex;
+      justify-content: space-evenly;
+      border-bottom: 1px solid #ddd;
+      background-color: #fff;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .tab-header button {
+      flex: 1;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 600;
       cursor: pointer;
-      padding: 14px 16px;
-      transition: 0.3s;
-      font-size: 17px;
-    }
-    
-    .tab button:hover {
-      background-color: #ddd;
-    }
-    
-    .tab button.active {
-      background-color: #ccc;
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease;
     }
 
-    .tabcontent {
+    .tab-header button:hover {
+      color: #007bff;
+    }
+
+    .tab-header button.active {
+      border-bottom: 2px solid #007bff;
+      color: #007bff;
+    }
+
+    /* Tab content */
+    .tab-content {
       display: none;
-      padding: 6px 12px;
-      border: 1px solid #ccc;
-      border-top: none;
+      padding: 20px;
     }
 
-    .tabcontent.active {
+    .tab-content.active {
       display: block;
+    }
+
+    /* Responsiveness */
+    @media (max-width: 600px) {
+      .tab-header button {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
 
-<h2>Canva Extension</h2>
+  <!-- Canva Logo (Replace the URL with your actual Canva logo image URL) -->
+  <div class="logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Canva_logo.svg/2560px-Canva_logo.svg.png" alt="Canva Logo">
+  </div>
 
-<div class="tab">
-  <button class="tablinks active" onclick="openTab(event, 'CanvaSelect')">Canva Select</button>
-  <button class="tablinks" onclick="openTab(event, 'CanvaDownload')">Canva Download</button>
-</div>
+  <!-- Tab Container -->
+  <div class="tab-container">
+    <div class="tab-header">
+      <button class="tablinks active" onclick="openTab(event, 'CanvaSelect')">Canva Select</button>
+      <button class="tablinks" onclick="openTab(event, 'CanvaDownload')">Canva Download</button>
+    </div>
 
-<div id="CanvaSelect" class="tabcontent active">
-  <h3>Canva Select</h3>
-  <p>This is the content for Canva Select.</p>
-</div>
+    <div id="CanvaSelect" class="tab-content active">
+      <h3>Canva Select</h3>
+      <p>This section covers how to select elements in Canva. Learn about selecting multiple elements, using selection tools, and more.</p>
+      <ul>
+        <li>Drag to select multiple elements</li>
+        <li>Hold Shift to select multiple items</li>
+        <li>Use keyboard shortcuts to enhance your workflow</li>
+      </ul>
+    </div>
 
-<div id="CanvaDownload" class="tabcontent">
-  <h3>Canva Download</h3>
-  <p>This is the content for Canva Download.</p>
-</div>
+    <div id="CanvaDownload" class="tab-content">
+      <h3>Canva Download</h3>
+      <p>Learn how to download designs in Canva. You can export your work in different formats, including PNG, PDF, and JPG.</p>
+      <ul>
+        <li>Download as PNG for high-quality images</li>
+        <li>Download as PDF for documents or presentations</li>
+        <li>Download as JPG for compressed images</li>
+      </ul>
+    </div>
+  </div>
 
-<script>
-  function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    
-    // Hide all tab content
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-      tabcontent[i].classList.remove("active");
+  <!-- Script to Handle Tabs -->
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+
+      // Hide all tab content
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        tabcontent[i].classList.remove("active");
+      }
+
+      // Remove active class from all tab buttons
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+
+      // Show the clicked tab and add active class to the clicked button
+      document.getElementById(tabName).style.display = "block";
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.className += " active";
     }
-
-    // Remove the active class from all tablinks
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Show the clicked tab's content and mark the button as active
-    document.getElementById(tabName).style.display = "block";
-    document.getElementById(tabName).classList.add("active");
-    evt.currentTarget.className += " active";
-  }
-</script>
+  </script>
 
 </body>
 </html>
