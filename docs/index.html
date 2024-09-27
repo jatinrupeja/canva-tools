@@ -10,7 +10,6 @@
   
   <!-- Styles -->
   <style>
-    /* General Reset */
     * {
       margin: 0;
       padding: 0;
@@ -19,7 +18,7 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(135deg, #6dd5fa, #ffffff); /* Soft background gradient */
+      background: linear-gradient(135deg, #6dd5fa, #ffffff);
       color: #333;
       line-height: 1.6;
       padding: 20px;
@@ -28,13 +27,11 @@
       align-items: center;
     }
 
-    /* Canva Logo */
     .logo img {
       max-width: 180px;
       margin-bottom: 30px;
     }
 
-    /* Tab container styling */
     .tab-container {
       width: 100%;
       max-width: 900px;
@@ -42,7 +39,6 @@
       box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
       border-radius: 15px;
       overflow: hidden;
-      transition: all 0.3s ease;
     }
 
     .tab-header {
@@ -50,7 +46,6 @@
       justify-content: space-evenly;
       background-color: #0073e6;
       border-radius: 15px 15px 0 0;
-      overflow: hidden;
     }
 
     .tab-header button {
@@ -74,27 +69,22 @@
       color: #0073e6;
     }
 
-    /* Tab content */
     .tab-content {
       display: none;
       padding: 35px;
       background-color: #f9f9f9;
-      font-size: 16px;
-      border-radius: 0 0 15px 15px;
     }
 
     .tab-content.active {
       display: block;
     }
 
-    /* List style */
     ul {
       margin-top: 10px;
       list-style-type: disc;
       padding-left: 20px;
     }
 
-    /* Code blocks */
     pre {
       background-color: #2e3a46;
       color: #f1f1f1;
@@ -103,10 +93,8 @@
       font-size: 14px;
       overflow-x: auto;
       white-space: pre-wrap;
-      word-wrap: break-word;
     }
 
-    /* Image style */
     .content-img {
       max-width: 100%;
       height: auto;
@@ -115,7 +103,6 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    /* Headings */
     h2 {
       margin-bottom: 10px;
       color: #0073e6;
@@ -126,7 +113,6 @@
       margin-bottom: 8px;
     }
 
-    /* "Buy me a coffee" button */
     .coffee-button {
       display: inline-block;
       margin-top: 30px;
@@ -146,7 +132,6 @@
       box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     }
 
-    /* Ad styling */
     .google-ad {
       margin: 20px 0;
       padding: 15px;
@@ -158,7 +143,6 @@
       border-radius: 10px;
     }
 
-    /* Responsiveness */
     @media (max-width: 600px) {
       .tab-header button {
         font-size: 14px;
@@ -172,34 +156,37 @@
 </head>
 <body>
 
-  <!-- Canva Logo -->
   <div class="logo">
     <img src="https://logodownload.org/wp-content/uploads/2020/11/canva-logo-.png" alt="Canva Logo">
   </div>
 
   <!-- Google Ad Placeholder -->
   <div class="google-ad">
-    <!-- Google Ad Code would go here -->
     <p>Google Ad Placeholder 1 (728x90)</p>
   </div>
 
-  <!-- Tab Container -->
   <div class="tab-container">
     <div class="tab-header">
       <button class="tablinks active" onclick="openTab(event, 'CanvaSelect')">Canva Select</button>
       <button class="tablinks" onclick="openTab(event, 'CanvaDownload')">Canva Download</button>
     </div>
 
-    <!-- Canva Select Section -->
     <div id="CanvaSelect" class="tab-content active">
       <h2>Canva Select Tool</h2>
-      <p>The Canva Select tool allows users to select multiple elements within a design quickly. By learning how to use this tool effectively, you can significantly speed up your workflow.</p>
+      <p>The Canva Select tool allows users to select multiple elements within a design quickly.</p>
+      
+      <!-- Google Ad Placeholder within content -->
+      <div class="google-ad">
+        <p>Google Ad Placeholder 2 (300x250)</p>
+      </div>
+
+      <p>By learning how to use this tool effectively, you can significantly speed up your workflow.</p>
       <img class="content-img" src="https://i.imgur.com/PEfB1zI.png" alt="Canva Select Tool Image">
       <h3>Features:</h3>
       <ul>
         <li>Drag to select multiple elements</li>
-        <li>Hold Shift to select individual items without deselecting the rest</li>
-        <li>Use keyboard shortcuts like Ctrl (or Command on Mac) for enhanced selection</li>
+        <li>Hold Shift to select individual items</li>
+        <li>Use keyboard shortcuts like Ctrl (Command on Mac) for enhanced selection</li>
       </ul>
       <h3>JavaScript Example:</h3>
       <pre>
@@ -209,18 +196,28 @@ document.querySelectorAll('.canvas-elements').forEach(el => {
   });
 });
       </pre>
+
+      <!-- Google Ad Placeholder after code block -->
+      <div class="google-ad">
+        <p>Google Ad Placeholder 3 (728x90)</p>
+      </div>
     </div>
 
-    <!-- Canva Download Section -->
     <div id="CanvaDownload" class="tab-content">
       <h2>Downloading Designs in Canva</h2>
-      <p>Once you've completed your design in Canva, downloading it in the appropriate format is the final step. Canva supports multiple formats for downloading, each suited to different needs.</p>
+      <p>Once you've completed your design in Canva, downloading it in the appropriate format is the final step.</p>
+
+      <!-- Google Ad Placeholder within content -->
+      <div class="google-ad">
+        <p>Google Ad Placeholder 4 (300x250)</p>
+      </div>
+
       <img class="content-img" src="https://i.imgur.com/F8wtk91.png" alt="Canva Download Options Image">
       <h3>Download Options:</h3>
       <ul>
         <li>Download as PNG for high-resolution images</li>
         <li>Download as PDF for presentations or documents</li>
-        <li>Download as JPG for compressed, smaller files</li>
+        <li>Download as JPG for smaller files</li>
       </ul>
       <h3>JavaScript Example:</h3>
       <pre>
@@ -231,41 +228,38 @@ function downloadDesign(type) {
 
 document.getElementById('download-png').addEventListener('click', () => downloadDesign('png'));
       </pre>
+
+      <!-- Google Ad Placeholder after content -->
+      <div class="google-ad">
+        <p>Google Ad Placeholder 5 (728x90)</p>
+      </div>
     </div>
   </div>
 
-  <!-- Google Ad Placeholder -->
+  <!-- Google Ad Placeholder at bottom -->
   <div class="google-ad">
-    <!-- Google Ad Code would go here -->
-    <p>Google Ad Placeholder 2 (300x250)</p>
+    <p>Google Ad Placeholder 6 (728x90)</p>
   </div>
 
-  <!-- Buy me a coffee button -->
   <a href="https://www.buymeacoffee.com/yourusername" class="coffee-button" target="_blank">Buy me a coffee</a>
 
-  <!-- Script to Handle Tabs -->
   <script>
     function openTab(evt, tabName) {
       var i, tabcontent, tablinks;
 
-      // Hide all tab content
       tabcontent = document.getElementsByClassName("tab-content");
       for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
         tabcontent[i].classList.remove("active");
       }
 
-      // Remove active class from all tab buttons
       tablinks = document.getElementsByClassName("tablinks");
       for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
       }
 
-      // Show the current tab
       document.getElementById(tabName).style.display = "block";
       document.getElementById(tabName).classList.add("active");
-
-      // Add active class to the clicked button
       evt.currentTarget.className += " active";
     }
   </script>
