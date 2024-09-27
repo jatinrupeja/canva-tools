@@ -19,7 +19,7 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #e8f0f2; /* Light background color */
+      background-color: #f3f8fa; /* Light background color */
       color: #333;
       line-height: 1.6;
       padding: 20px;
@@ -30,30 +30,30 @@
 
     /* Canva Logo */
     .logo img {
-      max-width: 150px;
-      margin-bottom: 20px;
+      max-width: 180px;
+      margin-bottom: 30px;
     }
 
     /* Tab container styling */
     .tab-container {
       width: 100%;
-      max-width: 800px;
+      max-width: 900px;
       background-color: white;
       box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
+      border-radius: 12px;
     }
 
     .tab-header {
       display: flex;
       justify-content: space-evenly;
       border-bottom: 1px solid #ddd;
-      background-color: #ffffff; /* White background for tabs */
-      border-radius: 10px 10px 0 0;
+      background-color: #ffffff;
+      border-radius: 12px 12px 0 0;
     }
 
     .tab-header button {
       flex: 1;
-      padding: 14px;
+      padding: 16px;
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
@@ -61,24 +61,26 @@
       border: none;
       border-bottom: 2px solid transparent;
       transition: all 0.3s ease;
+      color: #666;
     }
 
     .tab-header button:hover {
-      color: #008489; /* Hover color */
+      color: #0073e6;
     }
 
     .tab-header button.active {
-      border-bottom: 2px solid #008489; /* Active tab color */
-      color: #008489;
+      border-bottom: 2px solid #0073e6;
+      color: #0073e6;
     }
 
     /* Tab content */
     .tab-content {
       display: none;
-      padding: 20px;
-      background-color: #f9f9f9; /* Light content background */
-      border-top: 1px solid #ddd; /* Divider */
-      border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+      padding: 25px;
+      background-color: #f9f9f9;
+      border-top: 1px solid #ddd;
+      border-radius: 0 0 12px 12px;
+      font-size: 16px;
     }
 
     .tab-content.active {
@@ -92,10 +94,46 @@
       padding-left: 20px;
     }
 
+    /* Code blocks */
+    pre {
+      background-color: #333;
+      color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 14px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    /* Image style */
+    .content-img {
+      max-width: 100%;
+      height: auto;
+      margin: 20px 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Headings */
+    h2 {
+      margin-bottom: 10px;
+      color: #0073e6;
+    }
+
+    h3 {
+      color: #333;
+      margin-bottom: 8px;
+    }
+
     /* Responsiveness */
     @media (max-width: 600px) {
       .tab-header button {
         font-size: 14px;
+      }
+
+      pre {
+        font-size: 12px;
       }
     }
   </style>
@@ -114,24 +152,47 @@
       <button class="tablinks" onclick="openTab(event, 'CanvaDownload')">Canva Download</button>
     </div>
 
+    <!-- Canva Select Section -->
     <div id="CanvaSelect" class="tab-content active">
-      <h3>Canva Select</h3>
-      <p>This section covers how to select elements in Canva. Learn about selecting multiple elements, using selection tools, and more.</p>
+      <h2>Canva Select Tool</h2>
+      <p>The Canva Select tool allows users to select multiple elements within a design quickly. By learning how to use this tool effectively, you can significantly speed up your workflow.</p>
+      <img class="content-img" src="https://i.imgur.com/PEfB1zI.png" alt="Canva Select Tool Image">
+      <h3>Features:</h3>
       <ul>
         <li>Drag to select multiple elements</li>
-        <li>Hold Shift to select multiple items</li>
-        <li>Use keyboard shortcuts to enhance your workflow</li>
+        <li>Hold Shift to select individual items without deselecting the rest</li>
+        <li>Use keyboard shortcuts like Ctrl (or Command on Mac) for enhanced selection</li>
       </ul>
+      <h3>JavaScript Example:</h3>
+      <pre>
+document.querySelectorAll('.canvas-elements').forEach(el => {
+  el.addEventListener('click', () => {
+    el.classList.toggle('selected');
+  });
+});
+      </pre>
     </div>
 
+    <!-- Canva Download Section -->
     <div id="CanvaDownload" class="tab-content">
-      <h3>Canva Download</h3>
-      <p>Learn how to download designs in Canva. You can export your work in different formats, including PNG, PDF, and JPG.</p>
+      <h2>Downloading Designs in Canva</h2>
+      <p>Once you've completed your design in Canva, downloading it in the appropriate format is the final step. Canva supports multiple formats for downloading, each suited to different needs.</p>
+      <img class="content-img" src="https://i.imgur.com/F8wtk91.png" alt="Canva Download Options Image">
+      <h3>Download Options:</h3>
       <ul>
-        <li>Download as PNG for high-quality images</li>
-        <li>Download as PDF for documents or presentations</li>
-        <li>Download as JPG for compressed images</li>
+        <li>Download as PNG for high-resolution images</li>
+        <li>Download as PDF for presentations or documents</li>
+        <li>Download as JPG for compressed, smaller files</li>
       </ul>
+      <h3>JavaScript Example:</h3>
+      <pre>
+function downloadDesign(type) {
+  const downloadUrl = `/download?format=${type}`;
+  window.location.href = downloadUrl;
+}
+
+document.getElementById('download-png').addEventListener('click', () => downloadDesign('png'));
+      </pre>
     </div>
   </div>
 
